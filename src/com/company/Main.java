@@ -65,6 +65,12 @@ public class Main {
     static double sudeti(double sk1, double sk2) {
         return sk1 + sk2;
     }
+    static double sudetiKitoks() {
+        double sk1,sk2;
+        sk1 = pirmoskaiciausUzklausa();
+        sk2 = antroSkaiciausUzklausa();
+        return sk1+sk2;
+    }
 
     static double atimti() {
         double sk1, sk2;
