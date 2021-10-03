@@ -21,7 +21,7 @@ public class Main {
              */
             switch (operacija) {
                 case '+':
-                    sk1 = pirmoskaiciausUzklausa();
+                    sk1 = pirmoSkaiciausUzklausa();
                     sk2 = antroSkaiciausUzklausa();
                     System.out.println(sk1 + " + " + sk2 + " = " + sudeti(sk1, sk2));
                     break;
@@ -29,7 +29,7 @@ public class Main {
                     System.out.println(atimti());
                     break;
                 case '*':
-                    sk1 = pirmoskaiciausUzklausa();
+                    sk1 = pirmoSkaiciausUzklausa();
                     sk2 = antroSkaiciausUzklausa();
                     dauginti(sk1, sk2);
                     break;
@@ -38,7 +38,7 @@ public class Main {
                     break;
                 /*
                 case '#':
-                    sk1 = pirmoskaiciausUzklausa();
+                    sk1 = pirmoSkaiciausUzklausa();
                     sk2 = antroSkaiciausUzklausa();
                     for (int i = 0; i < 13; i++) {
                         rez = sk1 * sk2 + (sk2 - sk1) / sk1 * (13 + i);
@@ -62,33 +62,52 @@ public class Main {
         } while (statusas.equals("taip"));
     }
 
+    /**
+     * Funkcija sudedanti 2 skaičių sudėtį ir gražinanti rezultatą.
+     * @param sk1
+     * @param sk2
+     * @return
+     */
     static double sudeti(double sk1, double sk2) {
         return sk1 + sk2;
     }
+
     static double sudetiKitoks() {
-        double sk1,sk2;
-        sk1 = pirmoskaiciausUzklausa();
+        double sk1, sk2;
+        sk1 = pirmoSkaiciausUzklausa();
         sk2 = antroSkaiciausUzklausa();
-        return sk1+sk2;
+        return sk1 + sk2;
     }
 
+    /**
+     * Funkcija skaičių atėmimui, prašoma įvesti 2 skačius ir išvedamas rezultatas į ekraną.
+     * @return
+     */
     static double atimti() {
         double sk1, sk2;
-        sk1 = pirmoskaiciausUzklausa();
+        sk1 = pirmoSkaiciausUzklausa();
         sk2 = antroSkaiciausUzklausa();
         System.out.print(sk1 + " - " + sk2 + " = ");
         return sk1 - sk2;
     }
 
+    /**
+     * Funkcija sudauginanti 2 skaičius ir išvedanti rezultatą į ekraną.
+     * @param sk1
+     * @param sk2
+     */
     static void dauginti(double sk1, double sk2) {
         double rez;
         rez = sk1 * sk2;
         System.out.println(sk1 + " * " + sk2 + " = " + rez);
     }
 
+    /**
+     * Funkcija skirta dalybai, jei yra dalyba iš nulio rašoma kad dalyba iš nulio negalima, kitu atvėju rezultatas išvedamas į ekraną.
+     */
     static void dalinti() {
         double sk1, sk2, rez;
-        sk1 = pirmoskaiciausUzklausa();
+        sk1 = pirmoSkaiciausUzklausa();
         sk2 = antroSkaiciausUzklausa();
         if (sk2 == 0) {
             System.out.println("Dalyba iš nulio negalima");
@@ -98,14 +117,22 @@ public class Main {
         }
     }
 
-    static double pirmoskaiciausUzklausa() {
-        double a;
+    /**
+     * Funkcija skirta 1 skaičiaus įvedimui kurie vėliau naudojami skaičiavimams.
+     * @return
+     */
+    static double pirmoSkaiciausUzklausa() {
+        double sk1;
         Scanner S = new Scanner(System.in);
         System.out.println("Įveskite pirmą skaičių");
-        a = S.nextDouble();
-        return a;
+        sk1 = S.nextDouble();
+        return sk1;
     }
 
+    /**
+     * Funkcija skirta 2 skaičiaus įvedimui kurie vėliau naudojami skaičiavimams.
+     * @return
+     */
     static double antroSkaiciausUzklausa() {
         double b;
         Scanner S = new Scanner(System.in);
