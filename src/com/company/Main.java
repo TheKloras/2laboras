@@ -97,23 +97,23 @@ public class Main {
      * @param sk2
      */
     static void dauginti(double sk1, double sk2) {
-        double rez;
-        rez = sk1 * sk2;
-        System.out.println(sk1 + " * " + sk2 + " = " + rez);
+        double rezultatas;
+        rezultatas = sk1 * sk2;
+        System.out.println(sk1 + " * " + sk2 + " = " + rezultatas);
     }
 
     /**
      * Funkcija skirta dalybai, jei yra dalyba iš nulio rašoma kad dalyba iš nulio negalima, kitu atvėju rezultatas išvedamas į ekraną.
      */
     static void dalinti() {
-        double sk1, sk2, rez;
+        double sk1, sk2, rezultatas;
         sk1 = pirmoSkaiciausUzklausa();
         sk2 = antroSkaiciausUzklausa();
         if (sk2 == 0) {
             System.out.println("Dalyba iš nulio negalima");
         } else {
-            rez = sk1 / sk2;
-            System.out.println(sk1 + " / " + sk2 + " = " + rez);
+            rezultatas = sk1 / sk2;
+            System.out.println(sk1 + " / " + sk2 + " = " + rezultatas);
         }
     }
 
@@ -134,10 +134,10 @@ public class Main {
      * @return
      */
     static double antroSkaiciausUzklausa() {
-        double b;
+        double sk2;
         Scanner S = new Scanner(System.in);
         System.out.println("Įveskite antrą skaičių");
-        b = S.nextDouble();
-        return b;
+        sk2 = S.nextDouble();
+        return sk2;
     }
 }
