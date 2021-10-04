@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        Scanner S = new Scanner(System.in);
         String statusas = "taip";
         double sk1, sk2;//kintamieji skaičiavimui
         double rez;//rezultatas
         char operacija;
-        Scanner S = new Scanner(System.in);
         do {
             System.out.println("Įveskite kokia operacija darysite, galimos operacijos:+,-,*,/");
             operacija = S.next().charAt(0);
@@ -53,6 +53,21 @@ public class Main {
                     }
                     break;
                  */
+                case '&':
+                    sk1 = pirmoSkaiciausUzklausa();
+                    sk2 = antroSkaiciausUzklausa();
+                    for (int i = 0; i < 99; i++) {
+                        rez = skaiciuotiFormule(sk1,sk2,i);
+                        if (rez < 100) {
+                            System.out.println("(" + sk2 + " + " + sk1 + ") *" + sk2 + " + (" + sk2 + " - " + sk1 + ") / " + sk1 + " * " + (101 + i) + " = " + rez + " < 100");
+                        } else if (rez > 100) {
+                            System.out.println("(" + sk2 + " + " + sk1 + ") *" + sk2 + " + (" + sk2 + " - " + sk1 + ") / " + sk1 + " * " + (101 + i) + " = " + rez + " > 100");
+                        } else {
+                            System.out.println("(" + sk2 + " + " + sk1 + ") *" + sk2 + " + (" + sk2 + " - " + sk1 + ") / " + sk1 + " * " + (101 + i) + " = " + rez + " = 100");
+                        }
+                        System.out.println();
+                    }
+                    break;
                 default:
                     System.out.println("Nežinoma operacija");
                     break;
@@ -64,9 +79,9 @@ public class Main {
 
     /**
      * Funkcija sudedanti 2 skaičių sudėtį ir gražinanti rezultatą.
-     * @param sk1
-     * @param sk2
-     * @return
+     * @param sk1 1 skaičius
+     * @param sk2 2 skaičius
+     * @return gražinamas rezultatas
      */
     static double sudeti(double sk1, double sk2) {
         return sk1 + sk2;
@@ -81,7 +96,7 @@ public class Main {
 
     /**
      * Funkcija skaičių atėmimui, prašoma įvesti 2 skačius ir išvedamas rezultatas į ekraną.
-     * @return
+     * @return gražinamas rezultatas
      */
     static double atimti() {
         double sk1, sk2;
@@ -93,8 +108,8 @@ public class Main {
 
     /**
      * Funkcija sudauginanti 2 skaičius ir išvedanti rezultatą į ekraną.
-     * @param sk1
-     * @param sk2
+     * @param sk1 1 skaičius
+     * @param sk2 2 skaičius
      */
     static void dauginti(double sk1, double sk2) {
         double rezultatas;
@@ -118,8 +133,19 @@ public class Main {
     }
 
     /**
+     * Laboro gynimo formulė
+     * @param sk1 1 skaičius
+     * @param sk2 2 skaičius
+     * @param i iteracija
+     * @return gražinamas rezultatas
+     */
+    static double skaiciuotiFormule(double sk1,double sk2,int i){
+        return (sk2 + sk1) * sk2 + (sk2 - sk1) / sk1 * (101 + i);
+    }
+
+    /**
      * Funkcija skirta 1 skaičiaus įvedimui kurie vėliau naudojami skaičiavimams.
-     * @return
+     * @return gražinamas įvestas skaičius
      */
     static double pirmoSkaiciausUzklausa() {
         double sk1;
@@ -131,7 +157,7 @@ public class Main {
 
     /**
      * Funkcija skirta 2 skaičiaus įvedimui kurie vėliau naudojami skaičiavimams.
-     * @return
+     * @return gražinamas įvestas skaičius
      */
     static double antroSkaiciausUzklausa() {
         double sk2;
