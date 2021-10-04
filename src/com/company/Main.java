@@ -88,7 +88,7 @@ public class Main {
         return sk1 + sk2;
     }
 
-    static void sudetiKitoks() {
+    static void sudeti() {
         double sk1, sk2,rezultatas;
         sk1 = pirmoSkaiciausUzklausa();
         sk2 = antroSkaiciausUzklausa();
@@ -142,7 +142,7 @@ public class Main {
      * @param sk1 1 skaičius
      * @param sk2 2 skaičius
      * @param i   iteracija
-     * @return gražinamas rezultatas
+     * @return gražinamas formulės rezultatas
      */
     static double skaiciuotiFormule(double sk1, double sk2, int i) {
         return (sk2 + sk1) * sk2 + (sk2 - sk1) / sk1 * (101 + i);
