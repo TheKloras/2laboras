@@ -11,7 +11,7 @@ public class Main {
         double rez;//rezultatas
         char operacija;
         do {
-            System.out.println("Įveskite kokia operacija darysite, galimos operacijos:+,-,*,/");
+            System.out.println("Įveskite kokia operacija darysite, galimos operacijos:+,-,*,/,&");
             operacija = S.next().charAt(0);
             /*
             System.out.println("Įveskite pirmą skaičių");
@@ -57,13 +57,13 @@ public class Main {
                     sk1 = pirmoSkaiciausUzklausa();
                     sk2 = antroSkaiciausUzklausa();
                     for (int i = 0; i < 99; i++) {
-                        rez = skaiciuotiFormule(sk1,sk2,i);
+                        rez = skaiciuotiFormule(sk1, sk2, i);
                         if (rez < 100) {
-                            System.out.println("(" + sk2 + " + " + sk1 + ") *" + sk2 + " + (" + sk2 + " - " + sk1 + ") / " + sk1 + " * " + (101 + i) + " = " + rez + " < 100");
+                            System.out.println("(" + sk2 + " + " + sk1 + ") * " + sk2 + " + (" + sk2 + " - " + sk1 + ") / " + sk1 + " * " + (101 + i) + " = " + rez + " < 100");
                         } else if (rez > 100) {
-                            System.out.println("(" + sk2 + " + " + sk1 + ") *" + sk2 + " + (" + sk2 + " - " + sk1 + ") / " + sk1 + " * " + (101 + i) + " = " + rez + " > 100");
+                            System.out.println("(" + sk2 + " + " + sk1 + ") * " + sk2 + " + (" + sk2 + " - " + sk1 + ") / " + sk1 + " * " + (101 + i) + " = " + rez + " > 100");
                         } else {
-                            System.out.println("(" + sk2 + " + " + sk1 + ") *" + sk2 + " + (" + sk2 + " - " + sk1 + ") / " + sk1 + " * " + (101 + i) + " = " + rez + " = 100");
+                            System.out.println("(" + sk2 + " + " + sk1 + ") * " + sk2 + " + (" + sk2 + " - " + sk1 + ") / " + sk1 + " * " + (101 + i) + " = " + rez + " = 100");
                         }
                         System.out.println();
                     }
@@ -79,6 +79,7 @@ public class Main {
 
     /**
      * Funkcija sudedanti 2 skaičių sudėtį ir gražinanti rezultatą.
+     *
      * @param sk1 1 skaičius
      * @param sk2 2 skaičius
      * @return gražinamas rezultatas
@@ -87,15 +88,17 @@ public class Main {
         return sk1 + sk2;
     }
 
-    static double sudetiKitoks() {
-        double sk1, sk2;
+    static void sudetiKitoks() {
+        double sk1, sk2,rezultatas;
         sk1 = pirmoSkaiciausUzklausa();
         sk2 = antroSkaiciausUzklausa();
-        return sk1 + sk2;
+        rezultatas=sk1+sk2;
+        System.out.println(sk1 + " + " + sk2 + " = " + rezultatas);
     }
 
     /**
      * Funkcija skaičių atėmimui, prašoma įvesti 2 skačius ir išvedamas rezultatas į ekraną.
+     *
      * @return gražinamas rezultatas
      */
     static double atimti() {
@@ -108,6 +111,7 @@ public class Main {
 
     /**
      * Funkcija sudauginanti 2 skaičius ir išvedanti rezultatą į ekraną.
+     *
      * @param sk1 1 skaičius
      * @param sk2 2 skaičius
      */
@@ -134,17 +138,19 @@ public class Main {
 
     /**
      * Laboro gynimo formulė
+     *
      * @param sk1 1 skaičius
      * @param sk2 2 skaičius
-     * @param i iteracija
+     * @param i   iteracija
      * @return gražinamas rezultatas
      */
-    static double skaiciuotiFormule(double sk1,double sk2,int i){
+    static double skaiciuotiFormule(double sk1, double sk2, int i) {
         return (sk2 + sk1) * sk2 + (sk2 - sk1) / sk1 * (101 + i);
     }
 
     /**
      * Funkcija skirta 1 skaičiaus įvedimui kurie vėliau naudojami skaičiavimams.
+     *
      * @return gražinamas įvestas skaičius
      */
     static double pirmoSkaiciausUzklausa() {
@@ -157,6 +163,7 @@ public class Main {
 
     /**
      * Funkcija skirta 2 skaičiaus įvedimui kurie vėliau naudojami skaičiavimams.
+     *
      * @return gražinamas įvestas skaičius
      */
     static double antroSkaiciausUzklausa() {
